@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quản lý Phiếu Mượn Sách</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>QUẢN LÝ PHIẾU MƯỢN SÁCH</h1>
+
+    <div class="stats">
+        <div class="card">
+            <h3>Tổng phiếu</h3>
+            <p id="totalBorrow">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Đang mượn</h3>
+            <p id="borrowing">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Đã trả</h3>
+            <p id="returned">0</p>
+        </div>
+    </div>
+
+    <button id="btnAdd">
+        + Thêm phiếu mượn
+    </button>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Mã PM</th>
+            <th>Người mượn</th>
+            <th>Mã sách</th>
+            <th>Thể loại</th>
+            <th>Ngày mượn</th>
+            <th>Hạn trả</th>
+            <th>Điện thoại</th>
+            <th>Email</th>
+            <th>Trạng thái</th>
+            <th>Ghi chú</th>
+            <th>Thao tác</th>
+        </tr>
+        </thead>
+
+        <tbody id="borrowTable"></tbody>
+    </table>
+
+</div>
+
+<!-- Modal -->
+
+<div id="modal" class="modal">
+
+<div class="modal-content">
+
+<h2 id="modalTitle">Thêm Phiếu Mượn</h2>
+
+<form id="borrowForm">
+
+<input type="hidden" id="editIndex">
+
+<div class="form-group">
+<label>Mã phiếu mượn</label>
+<input type="text" id="borrowId">
+<small class="error" id="errBorrowId"></small>
+</div>
+
+<div class="form-group">
+<label>Họ tên người mượn</label>
+<input type="text" id="borrower">
+<small class="error" id="errBorrower"></small>
+</div>
+
+<div class="form-group">
+<label>Mã sách</label>
+<input type="text" id="bookId">
+<small class="error" id="errBookId"></small>
+</div>
+
+<div class="form-group">
+<label>Thể loại</label>
+<select id="category">
+<option value="">-- Chọn --</option>
+<option>CNTT</option>
+<option>Kinh tế</option>
+<option>Ngoại ngữ</option>
+<option>Kỹ năng</option>
+</select>
+<small class="error" id="errCategory"></small>
+</div>
+
+<div class="form-group">
+<label>Ngày mượn</label>
+<input type="date" id="borrowDate">
+<small class="error" id="errBorrowDate"></small>
+</div>
+
+<div class="form-group">
+<label>Hạn trả</label>
+<input type="date" id="dueDate">
+<small class="error" id="errDueDate"></small>
+</div>
+
+<div class="form-group">
+<label>Số điện thoại</label>
+<input type="text" id="phone">
+<small class="error" id="errPhone"></small>
+</div>
+
+<div class="form-group">
+<label>Email</label>
+<input type="text" id="email">
+<small class="error" id="errEmail"></small>
+</div>
+
+<div class="form-group">
+<label>Trạng thái</label>
+<select id="status">
+<option value="">-- Chọn --</option>
+<option>Đang mượn</option>
+<option>Đã trả</option>
+</select>
+<small class="error" id="errStatus"></small>
+</div>
+
+<div class="form-group">
+<label>Ghi chú</label>
+<textarea id="note"></textarea>
+<small class="error" id="errNote"></small>
+</div>
+
+<div class="buttons">
+<button type="submit">Lưu</button>
+<button type="button" id="btnClose">Đóng</button>
+</div>
+
+</form>
+
+</div>
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
